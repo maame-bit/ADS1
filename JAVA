@@ -1,0 +1,110 @@
+let user = prompt("What is your word?");
+function RhymingWords(user, wordmap) {
+    let lowercaseUser = user.toLowerCase(); // Convert user input to lowercase
+    let wordExists = false;
+    let assigned_number = null;
+    let rhymewords = [];
+
+    // Check if the word exists in the wordmap and get its assigned number
+    for (let i = 0; i < wordmap.length; i++) {
+        if (wordmap[i].word.toLowerCase() === lowercaseUser) { // Convert word to lowercase for comparison
+            wordExists = true;
+            assigned_number = wordmap[i].number;
+            break;
+        }
+    }
+
+    // If the word does not exist, return a message
+    if (!wordExists) {
+        return "No rhyming words found.";
+    }
+
+    // Find and collect rhyming words
+    for (let i = 0; i < wordmap.length; i++) {
+        if (wordmap[i].number === assigned_number) {
+            rhymewords.push(wordmap[i].word);
+        }
+    }
+
+    return rhymewords;
+}
+
+let wordmap = [
+    {word:"cat", number:0},
+    { word: "bat", number: 0 },
+  { word: "hat", number: 0 },
+  { word: "rat", number: 0 },
+  { word: "mat", number: 0 },
+  { word: "sat", number: 0 },
+  { word: "pat", number: 0 },
+  { word: "fat", number: 0 },
+  { word: "chat", number: 0 },
+  { word: "that", number: 0 },
+  { word: "gnat", number: 0 },
+  { word: "flat", number: 0 },
+  { word: "spat", number: 0 },
+  { word: "brat", number: 0 },
+  { word: "scat", number: 0 },
+  { word: "combat", number: 0 },
+  { word: "format", number: 0 },
+  { word: "ratchet", number: 0 },
+  { word: "cataract", number: 0 },
+  { word: "acrobatic", number: 0 },
+  { word: "democrat", number: 0 },
+  { word: "bog", number: 1 },
+  { word: "cog", number: 1 },
+  { word: "fog", number: 1 },
+  { word: "hog", number: 1 },
+  { word: "log", number: 1 },
+  { word: "jog", number: 1 },
+  { word: "clog", number: 1 },
+  { word: "frog", number: 1 },
+  { word: "smog", number: 1 },
+  { word: "prologue", number: 1 },
+  { word: "catalog", number: 1 },
+  { word: "monologue", number: 1 },
+  { word: "dialogue", number: 1 },
+  { word: "epilogue", number: 1 },
+  { word: "synagogue", number: 1 },
+  { word: "pedagogue", number: 1 },
+   { word: "tape", number: 2 },
+  { word: "shape", number: 2 },
+  { word: "cape", number: 2 },
+  { word: "drape", number: 2 },
+  { word: "ape", number: 2 },
+  { word: "scrape", number: 2 },
+  { word: "escape", number: 2 },
+  { word: "landscape", number: 2 },
+  { word: "videotape", number: 2 },
+  { word: "grape", number: 2 },
+  { word: "grapevine", number: 2 },
+  { word: "staple", number: 2 },
+  { word: "taper", number: 2 },
+  { word: "shaping", number: 2 },
+  { word: "caper", number: 2 },
+  { word: "escapee", number: 2 },
+  { word: "landscaping", number: 2 },
+  { word: "scraping", number: 2 },
+  {word:"bird", number:3},
+ {word: "heard", number: 3 },
+    { word: "word", number: 3 },
+    { word: "third", number: 3 },
+    { word: "curd", number: 3 },
+    { word: "blurred", number: 3 },
+    { word: "absurd", number: 3 },
+    { word: "nerd", number: 3 },
+    { word: "preferred", number: 3 },
+    { word: "stirred", number: 3 },
+    { word: "slurred", number: 3 },
+    { word: "occurred", number: 3 },
+    { word: "spurred", number: 3 },
+    { word: "referred", number: 3 },
+    { word: "concurred", number: 3 },
+    { word: "inferred", number: 3 },
+    { word: "deterred", number: 3 },
+    { word: "recurred", number: 3 },
+    { word: "transferred", number: 3 },
+    { word: "deferred", number: 3 }
+];
+let result = RhymingWords(user, wordmap);
+console.log(result);
